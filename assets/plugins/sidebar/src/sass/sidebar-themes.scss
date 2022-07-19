@@ -1,0 +1,34 @@
+@import "./mixin";
+
+
+.ice-theme {
+
+    $sidebar-bg-color: #2B3A42;
+    $primary-color: #9eb7c3;
+    $primary-highlight-color: #EFEFEF;
+    $border-color: #3a4d56;
+    $submenu-bg-color: #3a4d56;
+    $menu-icon-bg-color: #3a4d56;
+    $menu-icon-color: #bdd4de;
+    $menu-icon-highlight-color: #38fbc7;
+    $menu-header-color: #6c7b88;
+    $search-input-bg-color: #3a4d56;
+    $footer-bg-color: #2f3f48;
+    $shadow-color: #2b3a42;
+    $scrollbar-color: #8998a5;
+
+    @include themes($sidebar-bg-color,
+    $primary-color,
+    $primary-highlight-color,
+    $border-color,
+    $submenu-bg-color,
+    $menu-icon-bg-color,
+    $menu-icon-color,
+    $menu-icon-highlight-color,
+    $menu-header-color,
+    $search-input-bg-color,
+    $footer-bg-color,
+    $shadow-color,
+    $scrollbar-color);
+
+}
