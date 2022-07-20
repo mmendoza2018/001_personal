@@ -21,6 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
     "#sidebarTipoDocumento",
     "php/mantenimientos/equipo/tipoDocumento/index.php"
   );
+  routerVistas(
+    "#sidebarNuevoPersonal",
+    "php/recursosHumanos/personal/index.php"
+  );
+  routerVistas(
+    "#sidebarGestionPersonal",
+    "php/recursosHumanos/personal/tabla.php"
+  );
   // evitamos que muera la session del usuario 
   mantenerSesionActiva();
 });
@@ -200,7 +208,7 @@ const validaRespuestasAgregar = (
   idFormulario = false,
   idModal = false
 ) => {
-  if (respuesta === "true") {
+  if (respuesta) {
     Swal.fire({
       position: "center",
       icon: "success",
@@ -232,7 +240,7 @@ const validaRespuestasAgregar = (
 /* funcion para mostrar alertas de acuerdo a la respuesta, recibe dos parametros una la respuesta y la otra la ruta 
 para resetear el formulario */
 const validaRespuestaActualizar = (respuesta, ruta = false, idmodal) => {
-  if (respuesta === "true") {
+  if (respuesta) {
     Swal.fire({
       position: "center",
       icon: "success",
