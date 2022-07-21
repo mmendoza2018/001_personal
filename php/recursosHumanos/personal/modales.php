@@ -1,3 +1,9 @@
+<?php 
+require_once "../../conexion.php";
+
+$resDepartamentos = mysqli_query($conexion, "SELECT * FROM country");
+$resPuestos = mysqli_query($conexion, "SELECT * FROM gyt_puesto");
+?>
 <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
 <!-- Modal actualiza tipo equipos -->
@@ -36,13 +42,13 @@
             </a>
           </li>
         </ul>
-        <form id="formPersonalAdd">
+        <form id="formPersonalAct">
           <div class="tab-content mt-3">
             <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
               <div class="row" style="height: 330px;">
                 <div class="col-md-4">
                   <label>Documento</label>
-                  <input type="hidden" id="idPerAct">
+                  <input type="hidden" id="idPerAct" name="numdoc">
                   <select name="tipdoc" id="tipdocPerAct" class="form-select form-select-sm select2">
                     <option value="">-- SELECCIONE --</option>
                     <option value="DNI">DNI</option>
@@ -50,7 +56,7 @@
                     <option value="PASAPORTE">PASAPORTE</option>
                   </select>
                   <label>Num. Doc</label>
-                  <input type="number" name="numdoc" id="numdocPerAct" data-validate class="form-control form-control-sm" required="">
+                  <input type="number"  id="numdocPerAct" readonly data-validate class="form-control form-control-sm" required="">
                   <label>Nombres</label>
                   <input type="text" name="nombres" id="nombresPerAct" data-validate id="nombres" class="form-control form-control-sm" onkeyup="javascript:this.value=this.value.toUpperCase();" required="">
                   <label>Apellidos Pat./Mat.</label>
@@ -80,7 +86,7 @@
                     <option>CONVIVIENTE</option>
                   </select>
                   <label>Hijos</label>
-                  <input type="text" name="hijo" id="hijoPerAct" class="form-control form-control-sm" data-validate onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="SI / 4">
+                  <input type="number" name="hijo" id="hijoPerAct" class="form-control form-control-sm" data-validate onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="4">
                   <label>Mail</label>
                   <input type="email" name="email" id="emailPerAct" class="form-control form-control-sm" data-validate onkeyup="javascript:this.value=this.value.toUpperCase();">
                   <label>Nivel Estudios</label>
@@ -99,18 +105,18 @@
                 <div class="col-md-4">
                   <!-- /.form-group -->
                   <label>Departamento</label>
-                  <select onchange="selectChange(this,'php/recursosHumanos/personal/optionsProvincia.php','provinciaId')" class="form-select form-select-sm" data-validate name="Departamento" id="DepartamentoPerAct" required="">
+                  <select onchange="selectChange(this,'php/recursosHumanos/personal/optionsProvincia.php','ProvinciaPerAct')" class="form-select form-select-sm" data-validate name="Departamento" id="DepartamentoPerAct" required="">
                     <option value="">-- SELECCIONE --</option>
                     <?php foreach ($resDepartamentos as $x) : ?>
                       <option value="<?php echo $x["id"] ?>"><?php echo $x["country_name"] ?></option>
                     <?php endforeach; ?>
                   </select>
                   <label>Provincia</label>
-                  <select id="provinciaId" onchange="selectChange(this,'php/recursosHumanos/personal/optionsDistrito.php','distritoId')" class="form-select form-select-sm" data-validate name="Provincia" id="ProvinciaPerAct" required="">
+                  <select onchange="selectChange(this,'php/recursosHumanos/personal/optionsDistrito.php','DistritoPerAct')" class="form-select form-select-sm" data-validate name="Provincia" id="ProvinciaPerAct" required="">
                     <option value="">-- SELECCIONE --</option>
                   </select>
                   <label>Distrito</label>
-                  <select id="distritoId" class="form-select form-select-sm" data-validate name="Distrito" id="DistritoPerAct" required="">
+                  <select class="form-select form-select-sm" data-validate name="Distrito" id="DistritoPerAct" required="">
                     <option value="">-- SELECCIONE --</option>
                   </select>
                   <label>Telefono</label>

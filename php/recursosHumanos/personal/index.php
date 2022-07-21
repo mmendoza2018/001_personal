@@ -90,7 +90,7 @@ $resPuestos = mysqli_query($conexion, "SELECT * FROM gyt_puesto");
                     <option>CONVIVIENTE</option>
                   </select>
                   <label>Hijos</label>
-                  <input type="text" name="hijo" class="form-control form-control-sm" data-validate onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="SI / 4">
+                  <input type="number" name="hijo" class="form-control form-control-sm" data-validate onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="4">
                   <label>Mail</label>
                   <input type="email" name="email" class="form-control form-control-sm" data-validate onkeyup="javascript:this.value=this.value.toUpperCase();">
                   <label>Nivel Estudios</label>

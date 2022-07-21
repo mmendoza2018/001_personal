@@ -45,7 +45,7 @@
                 <a href="#"><span class="menu-text2">Documentos</span> </a>
                 <div class="sidebar-submenu-child" style="display: none;">
                   <ul>
-                    <li><a href="#" id="docEquipo">Nuevo documento</a></li>
+                    <li><a href="#" id="sidebarNuevoDocumento">Nuevo documento</a></li>
                     <li><a href="#" id="gestionDocEquipos">Gestión documentos</a></li>
                   </ul>
                 </div>

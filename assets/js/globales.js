@@ -29,6 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
     "#sidebarGestionPersonal",
     "php/recursosHumanos/personal/tabla.php"
   );
+  routerVistas(
+    "#sidebarNuevoDocumento",
+    "php/recursosHumanos/documentos/index.php"
+  );
   // evitamos que muera la session del usuario 
   mantenerSesionActiva();
 });
@@ -224,7 +228,7 @@ const validaRespuestasAgregar = (
       $("#" + idModal).modal("hide");
     }
     if (ruta !== false) {
-      $("#contenido").load(ruta);
+      $("#contenidoGeneral").load(ruta);
     }
   } else {
     Swal.fire({
@@ -248,7 +252,7 @@ const validaRespuestaActualizar = (respuesta, ruta = false, idmodal) => {
       showConfirmButton: false,
       timer: 1500,
     });
-    if (ruta !== false) $("#contenido").load(ruta);
+    if (ruta !== false) $("#contenidoGeneral").load(ruta);
     $("#" + idmodal).modal("hide");
   } else {
     Swal.fire({

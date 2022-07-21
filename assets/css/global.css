@@ -179,7 +179,6 @@ div.opciones-img-ot i {
 .z-index-10000 {
     z-index: 10000 !important;
 }
-hr.modal-act {
-    height: 2px;
-    margin: 1.2rem 0;
+form label {
+    font-weight: 600;
 }

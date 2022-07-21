@@ -2,7 +2,8 @@
 <?php
 include("../../conexion.php");
 $idDepartamento = $_POST["idSelect"];
-$resCity=mysqli_query($conexion,"SELECT * FROM `state` WHERE country_id=$idDepartamento");
+$resCity = mysqli_query($conexion,"SELECT * FROM `state` WHERE country_id=$idDepartamento");
+$optionCity = "";
 $optionCity .="<option value=''>-- SELECCIONE --</option>";
 foreach ($resCity as $k) {
   $idCity = $k["id"];

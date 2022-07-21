@@ -59,8 +59,8 @@ require_once "modales.php";
         previous: 'Atras'
       },
       toolbar: {
-        extraHtml: '<button class="btn btn-blue-gyt" type="submit" onclick="actualizarPersonal()">Actualizar</button>' // Extra html to show on toolbar
+        extraHtml: '<button class="btn btn-blue-gyt" type="button" onclick="actualizarPersonal()">Actualizar</button>' // Extra html to show on toolbar
       },
     });
-  }, 500);
+  }, 1000);
 </script>
