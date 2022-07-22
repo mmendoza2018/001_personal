@@ -24,3 +24,11 @@ const agregarDocumentoPer = () => {
       ocultarLoader();
     });
 };
+const obtenerListaDocsPer = (idPersona) => {
+  let data = new FormData();
+  data.append('idPersona',idPersona)
+  cargarContenido("php/recursosHumanos/documentos/listaDocumentos.php",'llegaListaDocPer', {
+    method:'POST',
+    body:data
+  })
+}

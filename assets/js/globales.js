@@ -33,7 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
     "#sidebarNuevoDocumento",
     "php/recursosHumanos/documentos/index.php"
   );
-  // evitamos que muera la session del usuario 
+  routerVistas(
+    "#sidebarGestionDocumento",
+    "php/recursosHumanos/documentos/tabla.php"
+  );
+  // evitamos que muera la session del usuario
   mantenerSesionActiva();
 });
 
@@ -48,7 +52,9 @@ function routerVistas(idBoton, url) {
         success: function (response) {
           $(`#contenidoGeneral`).html(response);
           localStorage.setItem("ruta", url);
-          (url==="php/proceso/lista_equipos_contrato.php") ? reducirSidebarlateral() : expandirSidebarlateral();
+          url === "php/proceso/lista_equipos_contrato.php"
+            ? reducirSidebarlateral()
+            : expandirSidebarlateral();
           ocultarLoader();
         },
       });
@@ -59,10 +65,10 @@ function routerVistas(idBoton, url) {
 const mantenerSesionActiva = () => {
   // Invocamos cada 5 minutos ;)
   const milisegundos = 300000;
-  setInterval(function(){
-      fetch("php/refresca_sesion.php");
-  },milisegundos);
-}
+  setInterval(function () {
+    fetch("php/refresca_sesion.php");
+  }, milisegundos);
+};
 
 /* funcion para validar los campos  */
 function validar_campos(idForm) {
@@ -162,14 +168,16 @@ function guardarDireccion() {
   if (rutaActual) {
     $("#contenidoGeneral").load(localStorage.getItem("ruta"));
   }
-  (rutaActual === "php/proceso/lista_equipos_contrato.php") ? reducirSidebarlateral() : expandirSidebarlateral();
+  rutaActual === "php/proceso/lista_equipos_contrato.php"
+    ? reducirSidebarlateral()
+    : expandirSidebarlateral();
 }
 
-const cargarContenido = (ruta, idLlegada, options={}) => {
+const cargarContenido = (ruta, idLlegada, options = {}) => {
   fetch(ruta, options)
-  .then(res => res.text())
-  .then(html => $(`#${idLlegada}`).html(html))
-}
+    .then((res) => res.text())
+    .then((html) => $(`#${idLlegada}`).html(html));
+};
 
 const expandirSidebarlateral = () => {
   $(".page-wrapper").removeClass("pinned");
@@ -186,7 +194,7 @@ const reducirSidebarlateral = () => {
       $(".page-wrapper").removeClass("sidebar-hovered");
     }
   );
-}
+};
 
 const limpiarFormulario = (idFormulario) => {
   document.getElementById(idFormulario).reset();
@@ -278,11 +286,14 @@ const validaNumerosPositivos = () => {
     }
   });
 };
-const generapdf = (id, ruta) => {
+const generapdf = (id, ruta, descripcionArchivo) => {
+  var left = screen.width / 2 - (window.innerWidth * 0.75) / 2;
   window.open(
     `${ruta}?id=${id}`,
-    "facturacion",
-    "width=650,height=600,margin=0,padding=5,scrollbars=SI,top=80,left=370"
+    descripcionArchivo,
+    `width=${window.innerWidth * 0.75},
+    height=${ window.innerHeight},
+    margin=0,padding=5,scrollbars=SI,top=80,left=${left}`
   );
 };
 const popover = () => {
