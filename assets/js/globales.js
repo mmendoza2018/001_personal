@@ -16,11 +16,28 @@ document.addEventListener("DOMContentLoaded", () => {
   CambiarIconoSidebar();
   validaNumerosPositivos();
   routerVistas("#index", "vistas/home.php");
+  //DESDE AQUI MOSTRAR MENU
 
   routerVistas(
     "#sidebarTipoDocumento",
-    "php/mantenimientos/equipo/tipoDocumento/index.php"
+    "php/mantenimientos/tipoDocumento/index.php"
   );
+
+  routerVistas(
+    "#sidebarPuestoLaboral",
+    "php/mantenimientos/puestoLaboral/index.php"
+  );
+
+  routerVistas(
+    "#sidebarProyecto",
+    "php/mantenimientos/proyecto/index.php"
+  );
+
+  routerVistas(
+    "#sidebarMotivoPermisos",
+    "php/mantenimientos/motivoPermiso/index.php"
+  );
+  /* fdsf */
   routerVistas(
     "#sidebarNuevoPersonal",
     "php/recursosHumanos/personal/index.php"
@@ -292,7 +309,7 @@ const generapdf = (id, ruta, descripcionArchivo) => {
     `${ruta}?id=${id}`,
     descripcionArchivo,
     `width=${window.innerWidth * 0.75},
-    height=${ window.innerHeight},
+    height=${window.innerHeight},
     margin=0,padding=5,scrollbars=SI,top=80,left=${left}`
   );
 };

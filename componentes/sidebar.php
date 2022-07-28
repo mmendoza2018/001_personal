@@ -73,7 +73,7 @@
         </li>
         <li class="sidebar-dropdown">
           <a href="#">
-          <i class="fas fa-bell"></i>
+            <i class="fas fa-bell"></i>
             <span class="menu-text">Monitor de alertas</span>
           </a>
           <div class="sidebar-submenu">
@@ -84,7 +84,7 @@
         </li>
         <li class="sidebar-dropdown">
           <a href="#">
-          <i class="fas fa-address-book"></i>
+            <i class="fas fa-address-book"></i>
             <span class="menu-text">Permisos</span>
           </a>
           <div class="sidebar-submenu">
@@ -97,59 +97,25 @@
         <li class="header-menu">
           <span>Mantenimientos</span>
         </li>
-        <li class="sidebar-dropdown">
-          <a href="#">
-            <i class="fas fa-truck-monster"></i>
-            <span class="menu-text">Equipos</span>
-          </a>
-          <div class="sidebar-submenu">
-            <ul>
-              <li><a href="#" id="AlertasDocEquipo">Alertas doc. equipos</a></li>
-              <li class="sidebar-dropdown-child">
-                <a href="#"><span class="menu-text2">Informacion general</span> </a>
-                <div class="sidebar-submenu-child" style="display: none;">
-                  <ul>
-                    <li><a href="#" id="sidebarTipoDocumento">Marcas</a></li>
-                    <li><a href="#" id="modelo">Modelos</a></li>
-                    <li><a href="#" id="familia">Familias</a></li>
-                    <li><a href="#" id="propietario">Propietarios</a></li>
-                    <li><a href="#" id="tipoDocEquipo">Tipos documentos</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="sidebar-dropdown-child d-none">
-                <a href="#" tyle="pointer-events: none; display: inline-block;"><span class="menu-text2">Información mecanica</span> </a>
-                <div class="sidebar-submenu-child">
-                  <ul>
-                    <li><a href="#" id="tipoSisEquipo">Tipo sistema</a></li>
-                    <li><a href="#" id="tipoOt">Tipo de OT</a></li>
-                    <li><a href="#" id="sistemaEquipo">sistema equipo</a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </li>
+        <!--- DESDE AQUI -->
         <li class="sidebar-dropdown">
           <a href="#">
             <i class="fas fa-sitemap"></i>
-            <span class="menu-text">Procesos</span>
+            <span class="menu-text">Ajustes del Sistema</span>
           </a>
           <div class="sidebar-submenu">
             <ul>
-              <li><a href="#" id="proyecto">Proyectos</a></li>
-              <li><a href="#" id="cliente">Clientes</a></li>
-              <li><a href="#" id="Sistemafamilia">Planes de Mantenimiento</a></li>
-              <li><a href="#" id="tipoSistema">Tipo sistemas</a></li>
-              <!-- <li><a href="#" id="tipoOt">Tipo de OT</a></li> -->
-              <li><a href="#" id="cargoTrabajador">Cargos trabajador</a></li>
-              <li><a href="#" id="trabajadores">Trabajadores</a></li>
-              <?php if ($_SESSION["rol_trabajador"] == "Administrador") { ?>
-                <li><a href="#" id="roles">Roles</a></li>
-              <?php } ?>
+              <li><a href="#" id="sidebarTipoDocumento">Tipo Documentos</a></li>
+              <li><a href="#" id="sidebarPuestoLaboral">Puestos Laborales</a></li>
+              <li><a href="#" id="sidebarProyecto">Proyectos</a></li>
+              <li><a href="#" id="sidebarMotivoPermisos">Motivos Permisos</a></li>
+              <!---<?php if ($_SESSION["rol_trabajador"] == "Administrador") { ?>
+                                <li><a href="#" id="roles">Roles</a></li> --->
+            <?php } ?>
             </ul>
           </div>
         </li>
+        <!--- HASTA AQUI -->
       </ul>
     </div>
     <!-- sidebar-menu  -->
