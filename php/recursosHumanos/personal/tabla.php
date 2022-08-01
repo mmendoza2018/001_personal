@@ -3,7 +3,6 @@ require_once "../../conexion.php";
 require_once "modales.php";
 
 ?>
-
 <div>
   <h5>PERSONAL</h5>
 </div>

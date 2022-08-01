@@ -190,11 +190,14 @@ function guardarDireccion() {
     : expandirSidebarlateral();
 }
 
-const cargarContenido = (ruta, idLlegada, options = {}) => {
+const cargarContenido = (ruta, idLlegada, options={}, mostrarRes=false) => {
   fetch(ruta, options)
-    .then((res) => res.text())
-    .then((html) => $(`#${idLlegada}`).html(html));
-};
+  .then(res => res.text())
+  .then(html => {
+    $(`#${idLlegada}`).html(html)
+    if(mostrarRes) console.log('html', html)
+  })
+}
 
 const expandirSidebarlateral = () => {
   $(".page-wrapper").removeClass("pinned");

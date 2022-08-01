@@ -13,24 +13,20 @@ $conTipoEquipo = mysqli_query($conexion, "SELECT * FROM gyt_proyectos WHERE pro_
         </thead>
         <tbody>
             <?php
-            foreach ($conTipoEquipo as $x) : 
-            $datos = $x["id_proyecto"]."|".$x["pro_descripcion"]."|".$x["pro_estado"];?>
+            foreach ($conTipoEquipo as $x) :
+                $datos = $x["id_proyecto"] . "|" . $x["pro_descripcion"] . "|" . $x["pro_estado"]; ?>
                 <tr>
                     <td><?php echo $x["id_proyecto"] ?></td>
                     <td><?php echo $x["pro_descripcion"] ?></td>
-                    <td><center><a href="#"  data-bs-toggle="modal" data-bs-target="#modalProyectosAct" onclick="llenarDatosProyectos('<?php echo $datos ?>')"><i class="fas fa-edit text-dark""></i></a></center></td>
+                    <td>
+                        <center><a href="#" data-bs-toggle="modal" data-bs-target="#modalProyectosAct" onclick="llenarDatosProyectos('<?php echo $datos ?>')"><i class="fas fa-edit text-dark""></i></a></center></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 </div>
+
 <script>
     $(document).ready(function() {
         $('#tablaProyectos').DataTable({
-            "info":false,
-            "language": {
-            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-        }
-        });
-    });
-</script>
+            " info":false, "language" : { "url" : "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" } }); }); </script>
