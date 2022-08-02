@@ -54,6 +54,15 @@ document.addEventListener("DOMContentLoaded", () => {
     "#sidebarGestionDocumento",
     "php/recursosHumanos/documentos/tabla.php"
   );
+  routerVistas(
+    "#sidebarNuevoPermisoAdd",
+    "php/permisos/formulario.php"
+  );
+  routerVistas(
+    "#sidebarNuevoPermisoTabla",
+    "php/permisos/tabla.php"
+  );
+
   // evitamos que muera la session del usuario
   mantenerSesionActiva();
 });

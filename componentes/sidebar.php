@@ -51,14 +51,6 @@
                 </div>
               </li>
               <li class="sidebar-dropdown-child">
-                <a href="#"><span class="menu-text2">Fichas</span> </a>
-                <div class="sidebar-submenu-child" style="display: none;">
-                  <ul>
-                    <li><a href="#" id="docEquipo">Consultas</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="sidebar-dropdown-child">
                 <a href="#"><span class="menu-text2">SCTR</span> </a>
                 <div class="sidebar-submenu-child" style="display: none;">
                   <ul>
@@ -89,8 +81,8 @@
           </a>
           <div class="sidebar-submenu">
             <ul>
-              <li><a href="#" id="listaProyectos">Nuevo permiso</a></li>
-              <li><a href="#" id="listaProyectos">Consultar permiso</a></li>
+              <li><a href="#" id="sidebarNuevoPermisoAdd">Nuevo permiso</a></li>
+              <li><a href="#" id="sidebarNuevoPermisoTabla">Consultar permiso</a></li>
             </ul>
           </div>
         </li>

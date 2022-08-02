@@ -20,22 +20,27 @@ require_once "modales.php";
       </thead>
       <?php
       $resPersonal = mysqli_query($conexion, " SELECT * FROM gyt_personas");
-        foreach ($resPersonal as $x) { ?>
-          <tr>
-            <td><?php echo $x["id_persona"]; ?></td>
-            <td><?php echo $x["per_nombres"]. ' '.$x["per_apellidos"];?> </td>
-            <td><?php echo $x["per_telefono"]; ?></td>
-            <td>
-              <a class="text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#modalActPersonal"
-              onclick="llenarDatosPersonalAct('<?php echo $x['id_persona']; ?>')">
-                <i class="fa fa-edit"></i>
-              </a>
-              |
-              <a class="text-decoration-none" href="frm-detfamilia.php?id=<?php echo $x["id_persona"]; ?>">
-                <i class="fa fa-child"></i>
-              </a>
-            </td>
-          </tr>
+      foreach ($resPersonal as $x) { 
+        $idPersona = $x["id_persona"];?>
+        <tr>
+          <td><?php echo $idPersona ?></td>
+          <td><?php echo $x["per_nombres"] . ' ' . $x["per_apellidos"]; ?> </td>
+          <td><?php echo $x["per_telefono"]; ?></td>
+          <td>
+            <a class="text-decoration-none" href="#"
+            onclick="generapdf('<?php echo $idPersona  ?>', 'php/generaPDF/fichaPersonal/index.php', 'Ficha Personal')">
+            <i class="fas fa-file-pdf"></i>
+            </a>
+            |
+            <a class="text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#modalActPersonal" onclick="llenarDatosPersonalAct('<?php echo $x['id_persona']; ?>')">
+              <i class="fa fa-edit"></i>
+            </a>
+            |
+            <a class="text-decoration-none" href="frm-detfamilia.php?id=<?php echo $x["id_persona"]; ?>">
+              <i class="fa fa-child"></i>
+            </a>
+          </td>
+        </tr>
       <?php } ?>
     </table>
   </div>
@@ -45,7 +50,7 @@ require_once "modales.php";
   $(document).ready(function() {
     $('#tablaListaPersonal').DataTable({
       "info": false,
-      "ordering":false,
+      "ordering": false,
       "language": {
         "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
       }
