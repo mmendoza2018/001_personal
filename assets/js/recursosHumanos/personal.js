@@ -17,7 +17,7 @@ const agregarPersonal = () => {
       console.log("json", json);
       if (json[0]) {
         toastPersonalizada("Agregado correctamente!", "success", 2000);
-        formulario.reset();
+        cargarContenido("php/recursosHumanos/personal/index.php","contenidoGeneral")
       } else {
         toastPersonalizada(json[1], "error", 2000);
       }

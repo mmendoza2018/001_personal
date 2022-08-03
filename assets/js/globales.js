@@ -62,6 +62,12 @@ document.addEventListener("DOMContentLoaded", () => {
     "#sidebarNuevoPermisoTabla",
     "php/permisos/tabla.php"
   );
+  routerVistas(
+    "#sidebarMonitorAlertas",
+    "php/recursosHumanos/documentos/tablaMonitor.php"
+  );
+
+  
 
   // evitamos que muera la session del usuario
   mantenerSesionActiva();

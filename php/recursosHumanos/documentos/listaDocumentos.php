@@ -92,7 +92,7 @@ $arrayDatos = mysqli_fetch_assoc($resListadoDoc);
             <td><?php echo $x["doc_fecha2"]; ?></td>
             <td class="text-center">
               <a class="link_edit text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalActDocPersonal"
-              onclick="llenarDocumentosAct('<?php echo $data ?>')" href="#">
+              onclick="llenarDocumentosAct('<?php echo $data ?>',false)" href="#">
                 <i class="fa fa-edit"></i>
               </a>
               |

@@ -4,7 +4,7 @@ require_once "modales.php";
 
 ?>
 <div>
-  <h5>PERSONAL</h5>
+  <h5>GESTIÓN DEL PERSONAL</h5>
 </div>
 <div class="container-fluid bg-white my-2 py-3">
   <!-- /.box-header -->
@@ -35,10 +35,10 @@ require_once "modales.php";
             <a class="text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#modalActPersonal" onclick="llenarDatosPersonalAct('<?php echo $x['id_persona']; ?>')">
               <i class="fa fa-edit"></i>
             </a>
-            |
+  <!--           |
             <a class="text-decoration-none" href="frm-detfamilia.php?id=<?php echo $x["id_persona"]; ?>">
               <i class="fa fa-child"></i>
-            </a>
+            </a> -->
           </td>
         </tr>
       <?php } ?>

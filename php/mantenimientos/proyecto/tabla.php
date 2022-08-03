@@ -25,8 +25,13 @@ $conTipoEquipo = mysqli_query($conexion, "SELECT * FROM gyt_proyectos WHERE pro_
         </tbody>
     </table>
 </div>
-
 <script>
     $(document).ready(function() {
         $('#tablaProyectos').DataTable({
-            " info":false, "language" : { "url" : "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" } }); }); </script>
+            "info":false,
+            "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        }
+        });
+    });
+</script>

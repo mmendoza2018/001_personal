@@ -30,15 +30,19 @@ if ($_FILES['documento']['name']!=null) {
   $nuevoNombreArchivo = $arrayIdentificador[0] . rand(1,10) . "." . $arrayIdentificador[1];
 
   $ruta_doc_act = "../../../archivos/" . $identificadorDoc; // ruta del archivo
-  unlink($ruta_doc_act); //eliminamos el archivo 
+  if (file_exists($ruta_doc_act)) {
+    unlink($ruta_doc_act); //eliminamos el archivo 
+  }
   $contenidoArchivo = file_get_contents($_FILES["documento"]['tmp_name']); //contenido del archivo
   $guarda_doc =  file_put_contents("../../../archivos/" . $nuevoNombreArchivo, $contenidoArchivo);
   if(!$guarda_doc) {
+    echo "no guardo";
     echo json_encode(false);
     die();
   };
   $identificadorDoc=$nuevoNombreArchivo;
 }
+echo "--";
 $consulta = "UPDATE gyt_documentos SET 
                                           id_persona = '$idPersona',
                                           id_tipodocumento = '$idTipoDocumento',	

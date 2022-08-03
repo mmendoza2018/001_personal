@@ -67,20 +67,15 @@ $restipoDocumentos = mysqli_query($conexion, " SELECT * FROM gyt_tipodocumento")
               <label>Descripcion Documento</label>
               <input type="text" class="form-control form-control-sm" name="descripcion" id="descripcionDocAct" onkeyup="javascript:this.value=this.value.toUpperCase();">
               <label>Empresa</label>
-              <input type="text" class="form-control form-control-sm" data-validate name="empresa" id="empresaDocAct" onkeyup="javascript:this.value=this.value.toUpperCase();">
+              <input type="text" class="form-control form-control-sm" name="empresa" id="empresaDocAct" onkeyup="javascript:this.value=this.value.toUpperCase();">
               <label>Observaciones</label>
               <input type="text" class="form-control form-control-sm" id="observacionesDocAct" name="observaciones" onkeyup="javascript:this.value=this.value.toUpperCase();">
-              <label>Estado</label>
-              <select class="form-select form-select-sm" id="estadoDocAct" data-validate name="estado">
-                <option value="1">Habilitado</option>
-                <option value="0">Inhabilitar</option>
-              </select>
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-sm btn-blue-gyt" onclick="actualizaDocumentoPer();" data-bs-dismiss="modal">Actualizar</button>
+        <button type="button" class="btn btn-sm btn-blue-gyt" id="idBtnActDocs" data-tabla onclick="actualizaDocumentoPer(this);">Actualizar</button>
         <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>

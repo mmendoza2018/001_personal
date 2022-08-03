@@ -6,15 +6,13 @@ $resDepartamentos = mysqli_query($conexion, "SELECT * FROM country");
 $resPuestos = mysqli_query($conexion, "SELECT * FROM gyt_puesto");
 
 ?>
-<link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
-<script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
 <style>
   #formPersonalAdd label {
     font-weight: 600;
   }
 </style>
 <div>
-  <h5>PERSONAL</h5>
+  <h5>AGREGA PERSONAL</h5>
 </div>
 <div class="container-fluid bg-white my-2 py-3">
   <div class="row g-5">

@@ -1,9 +1,10 @@
 <?php
 require_once('../../conexion.php');
-$resPuestos = mysqli_query($conexion, "SELECT * FROM gyt_puesto");
+$resPersonal = mysqli_query($conexion, "SELECT * FROM gyt_personas");
+$resTipoDocs = mysqli_query($conexion, " SELECT * FROM gyt_tipodocumento WHERE tdoc_estado='ACTIVO'");
 ?>
 <div>
-  <h5>PERSONAL</h5>
+  <h5>AGREGAR DOCUMENTOS</h5>
 </div>
 <div class="container-fluid bg-white my-2 py-3">
   <div class="col-md-7 mx-auto">
@@ -11,12 +12,17 @@ $resPuestos = mysqli_query($conexion, "SELECT * FROM gyt_puesto");
       <div class="row">
         <div class="col-md-6">
           <label>Personal</label>
-          <input type="text" name="numid" class="form-control form-control-sm" data-validate value="00481267" readonly="readonly">
+          <select name="numid" data-validate class="form-control select2">
+            <option></option>
+            <?php foreach ($resPersonal as $x) : ?>
+              <option value="<?php echo $x["id_persona"] ?>"><?php echo $x["per_nombres"] . " " . $x["per_apellidos"] ?></option>
+            <?php endforeach; ?>
+          </select>
           <label>Seleccione Documento</label>
-          <select class="form-select form-select-sm" data-validate name="tipdoc" required="">
-          <option value="">-- SELECCIONE --</option>
-            <?php foreach ($resPuestos as $x) : ?>
-              <option value="<?php echo $x["id_puesto"] ?>"><?php echo $x["pue_descripcion"] ?></option>
+          <select class="form-control select2" data-validate name="tipdoc" required="">
+          <option ></option>
+            <?php foreach ($resTipoDocs as $x) : ?>
+              <option value="<?php echo $x["id_tipodocumento "] ?>"><?php echo $x["tdoc_descripcion"] ?></option>
             <?php endforeach; ?>
           </select>
           <label>Fecha Inscripcion</label>
@@ -32,7 +38,7 @@ $resPuestos = mysqli_query($conexion, "SELECT * FROM gyt_puesto");
           <label>Empresa</label>
           <input type="text" class="form-control form-control-sm" data-validate name="empresa" placeholder="PACIFICO SEGUROS" onkeyup="javascript:this.value=this.value.toUpperCase();">
           <label>Observaciones</label>
-          <input type="text" class="form-control form-control-sm" data-validate name="observacion" placeholder="DOCUMENTO VALIDO POR 90 DIAS" onkeyup="javascript:this.value=this.value.toUpperCase();">
+          <input type="text" class="form-control form-control-sm" name="observacion" placeholder="DOCUMENTO VALIDO POR 90 DIAS" onkeyup="javascript:this.value=this.value.toUpperCase();">
         </div>
         <div class="col-md-6">
           <label>Carga Documento</label>
@@ -46,3 +52,13 @@ $resPuestos = mysqli_query($conexion, "SELECT * FROM gyt_puesto");
     </form>
   </div>
 </div>
+<script>
+  $(document).ready(function() {
+    $(".select2").select2({
+      placeholder: "Seleccione una opcion",
+    });
+  });
+  $(document).on("select2:open", () => {
+    document.querySelector(".select2-search__field").focus();
+  });
+</script>

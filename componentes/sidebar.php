@@ -50,7 +50,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="sidebar-dropdown-child">
+          <!--     <li class="sidebar-dropdown-child">
                 <a href="#"><span class="menu-text2">SCTR</span> </a>
                 <div class="sidebar-submenu-child" style="display: none;">
                   <ul>
@@ -59,7 +59,7 @@
                     <li><a href="#" id="gestionDocEquipos">Asignaciones SCTR</a></li>
                   </ul>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </div>
         </li>
@@ -70,7 +70,7 @@
           </a>
           <div class="sidebar-submenu">
             <ul>
-              <li><a href="#" id="listaProyectos">Contratos</a></li>
+              <li><a href="#" id="sidebarMonitorAlertas">Contratos</a></li>
             </ul>
           </div>
         </li>

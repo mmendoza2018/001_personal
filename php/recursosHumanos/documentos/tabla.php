@@ -5,7 +5,7 @@ require_once "modales.php";
 $resListaPersonas = mysqli_query($conexion, "SELECT * FROM gyt_personas");
 ?>
 <div>
-  <h5>Documentos del personal</h5>
+  <h5>GESTION DE LOS DOCUMENTOS</h5>
 </div>
 <div class="container-fluid bg-white my-2 py-3">
   <div class="table-responsive">

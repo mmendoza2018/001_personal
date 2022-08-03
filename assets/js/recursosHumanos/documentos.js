@@ -17,7 +17,7 @@ const agregarDocumentoPer = () => {
       console.log("json", json);
       if (json) {
         toastPersonalizada("Agregado correctamente!", "success", 2000);
-        formulario.reset();
+        cargarContenido("php/recursosHumanos/documentos/index.php","contenidoGeneral")
       } else {
         toastPersonalizada("Ocurrio un error al agregar!", "error", 2000);
       }
@@ -51,8 +51,7 @@ const verDocumentoPersonal = (idDocumento) => {
   );
 };
 
-const llenarDocumentosAct = (data) => {
-  console.log("data", data);
+const llenarDocumentosAct = (data, isMonitorAlerta) => {
   let [
     idDocumento,
     idPersona,
@@ -75,8 +74,8 @@ const llenarDocumentosAct = (data) => {
   document.getElementById("descripcionDocAct").value = descripcion;
   document.getElementById("empresaDocAct").value = empresa;
   document.getElementById("observacionesDocAct").value = observacion;
-  document.getElementById("estadoDocAct").value = 1;
   document.getElementById("idPersonaAuxiliar").value = idPersonaAux;
+  document.getElementById("idBtnActDocs").dataset.tabla = isMonitorAlerta;
 
   $(document).ready(function () {
     $(".select2").select2({
@@ -89,7 +88,7 @@ const llenarDocumentosAct = (data) => {
     document.querySelector(".select2-search__field").focus();
   });
 };
-const actualizaDocumentoPer = () => {
+const actualizaDocumentoPer = (elemento) => {
   if (validar_campos("formActDocPersonal")) {
     Swal.fire({
       title: "¿Estas seguro de actualizar?",
@@ -102,6 +101,7 @@ const actualizaDocumentoPer = () => {
       if (result.isConfirmed) {
         let formulario = document.getElementById("formActDocPersonal");
         let data = new FormData(formulario);
+        let monitorAlerta = elemento.dataset.tabla;
         fetch("php/recursosHumanos/documentos/actualiza.php", {
           method: "POST",
           body: data,
@@ -110,9 +110,14 @@ const actualizaDocumentoPer = () => {
           .then((json) => {
             if (json) {
               toastPersonalizada("Actualizado correctamente !", "success");
+              $("#modalActDocPersonal").modal("hide");
               let idPersonaAux =
                 document.getElementById("idPersonaAuxiliar").value;
-              obtenerListaDocsPer(idPersonaAux);
+                if (monitorAlerta === "true") {
+                  cargarContenido("php/recursosHumanos/documentos/tablaMonitor.php","contenidoGeneral")
+                }else {
+                  obtenerListaDocsPer(idPersonaAux);
+                }
             } else {
               toastPersonalizada("Ocurrio algun error!", "error");
             }

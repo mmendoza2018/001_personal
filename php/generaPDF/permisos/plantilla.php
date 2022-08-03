@@ -45,7 +45,8 @@ function plantilla($idPermiso)
 	<b>FECHAS</b>
 	<div class="mt-2">
 	<span >Inicio permiso</span><span>: '.$arrayResultado["perm_inicio"].'</span><br>
-	<span>Inicio permiso</span><span>: '.$arrayResultado["perm_fin"].'</span>
+	<span>Inicio permiso</span><span>: '.$arrayResultado["perm_fin"].'</span><br>
+	<span>'.$arrayResultado["perm_total"].'</span>
 	</div>
 	</div>
 	<table class="mt-5">
@@ -96,7 +97,8 @@ function plantilla($idPermiso)
 	<b>FECHAS</b>
 	<div class="mt-2">
 	<span >Inicio permiso</span><span>: '.$arrayResultado["perm_inicio"].'</span><br>
-	<span>Inicio permiso</span><span>: '.$arrayResultado["perm_fin"].'</span>
+	<span>Inicio permiso</span><span>: '.$arrayResultado["perm_fin"].'</span><br>
+	<span>'.$arrayResultado["perm_total"].'</span>
 	</div>
 	</div>
 	<table class="mt-5">

@@ -4,7 +4,7 @@ $resPermisos = mysqli_query($conexion, "SELECT * FROM gyt_permisos pm
                                   INNER JOIN gyt_personas ps ON pm.id_persona = ps.id_persona");
 ?>
 <div>
-  <h5>LISTA PERMISOS</h5>
+  <h5>GESTIÓN DE PERMISOS</h5>
 </div>
 <div class="container-fluid bg-white my-2 py-3">
   <div class="table-responsive">
