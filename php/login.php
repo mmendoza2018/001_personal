@@ -31,6 +31,7 @@ if ($_POST['user'] !== "" && $_POST['password'] !== "") {
             }
             $_SESSION["nombre_trabajador"] = $nombreSql; // session con el nombre
             $_SESSION["rol_trabajador"] = $descripcionRol; // session con el rol
+            $_SESSION["primerIngreso"] = true; // session con el rol
             echo json_encode(1);
         } else {
             echo json_encode(3); // la contra esta mal

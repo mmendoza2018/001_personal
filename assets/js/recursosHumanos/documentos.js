@@ -113,10 +113,15 @@ const actualizaDocumentoPer = (elemento) => {
               $("#modalActDocPersonal").modal("hide");
               let idPersonaAux =
                 document.getElementById("idPersonaAuxiliar").value;
-                if (monitorAlerta === "true") {
-                  cargarContenido("php/recursosHumanos/documentos/tablaMonitor.php","contenidoGeneral")
-                }else {
-                  obtenerListaDocsPer(idPersonaAux);
+                let modalMonitorAlertas = document.getElementById('modalVerTablaMonitor');
+                if (modalMonitorAlertas.classList.contains('show')) {
+                  cargarContenido("php/recursosHumanos/documentos/tablaMonitor.php","llegaTablaALertaDocs")
+                } else{
+                  if (monitorAlerta === "true") {
+                    cargarContenido("php/recursosHumanos/documentos/tablaMonitor.php","contenidoGeneral")
+                  }else {
+                    obtenerListaDocsPer(idPersonaAux);
+                  }
                 }
             } else {
               toastPersonalizada("Ocurrio algun error!", "error");

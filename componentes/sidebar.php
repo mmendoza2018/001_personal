@@ -70,7 +70,7 @@
           </a>
           <div class="sidebar-submenu">
             <ul>
-              <li><a href="#" id="sidebarMonitorAlertas">Contratos</a></li>
+              <li><a href="#" id="sidebarMonitorAlertas">Documentos del personal</a></li>
             </ul>
           </div>
         </li>
@@ -123,8 +123,8 @@
       </a>
       <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-        <a class="text-warning" data-bs-toggle="modal" data-bs-target="#modaAlertaDocumentos"><i class="fas fa-bell"></i></a>
-        <span class="badge badge-pill badge-warning notification">3</span>
+        <!-- <a class="text-warning" data-bs-toggle="modal" data-bs-target="#modaAlertaDocumentos"><i class="fas fa-bell"></i></a>
+        <span class="badge badge-pill badge-warning notification">3</span> -->
       </a>
       <!-- <div class="dropdown-menu notifications" aria-labelledby="dropdownMenuMessage">
                 <div class="notifications-header">

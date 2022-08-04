@@ -15,7 +15,9 @@ $resTipoDocs = mysqli_query($conexion, " SELECT * FROM gyt_tipodocumento WHERE t
           <select name="numid" data-validate class="form-control select2">
             <option></option>
             <?php foreach ($resPersonal as $x) : ?>
-              <option value="<?php echo $x["id_persona"] ?>"><?php echo $x["per_nombres"] . " " . $x["per_apellidos"] ?></option>
+              <option value="<?php echo $x["id_persona"] ?>">
+                <?php echo $x["per_nombres"] . " " . $x["per_apellidos"] ." | ". $x["id_persona"] ?>
+              </option>
             <?php endforeach; ?>
           </select>
           <label>Seleccione Documento</label>

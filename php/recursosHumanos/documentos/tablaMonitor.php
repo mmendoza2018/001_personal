@@ -16,7 +16,7 @@ $fechaEnTreintaDias =  date("Y-m-d", strtotime($fechaActual . "+ 29 days"));
 $resDocumentos = mysqli_query($conexion, $consulta);
 ?>
 <div>
-  <h5>DOCUMENTOS DEL PERSONAL</h5>
+  <h5>MONITOR DE ALERTAS</h5>
 </div>
 <div class="container-fluid bg-white my-2 py-3">
   <div class="table-responsive">
@@ -36,12 +36,20 @@ $resDocumentos = mysqli_query($conexion, $consulta);
           $idDocumento = $x["id_documento"];
           $classClircle = ($fechaActual >= $x["doc_fecha2"]) ? "text-danger" : "text-warning";
           $data = $x["id_documento"] . "|" . $x["id_persona"] . "|" . $x["id_tipodocumento"] . "|" . $x["doc_fecha1"] . "|" . $x["doc_fecha2"] . "|" . $x["doc_numdoc"] . "|" . $x["doc_descripcion"] . "|" . $x["doc_empresa"] . "|" . $x["doc_observa"] . "|" . $x["id_persona"];
+          $descripcionRecortado = null;
+          if(strlen($x["tdoc_descripcion"]) > 50)  {
+            $descripcionRecortado = substr($x["tdoc_descripcion"], 0, 50);
+            $descripcionRecortado.="...";
+            $descripcionDoc = $descripcionRecortado;
+          }else {
+            $descripcionDoc = $x["tdoc_descripcion"];
+          }
         ?>
           <tr>
             <td><?php echo $idDocumento; ?></td>
             <td><?php echo $x["id_persona"]; ?></td>
             <td><?php echo $x["per_nombres"] . ' ' . $x["per_apellidos"]; ?></td>
-            <td><?php echo $x["tdoc_descripcion"]; ?></td>
+            <td><?php echo $descripcionDoc ?></td>
             <td>
               <i class="fas fa-circle <?php echo $classClircle ?>"></i>
               <?php echo $x["doc_fecha2"]; ?>

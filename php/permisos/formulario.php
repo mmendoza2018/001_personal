@@ -15,7 +15,9 @@ $resMotivos = mysqli_query($conexion, " SELECT * FROM gyt_motivos WHERE mot_esta
       <select name="idPersona" data-validate class="form-control select2">
         <option></option>
         <?php foreach ($resPersonal as $x) : ?>
-          <option value="<?php echo $x["id_persona"] ?>"><?php echo $x["per_nombres"] . " " . $x["per_apellidos"] ?></option>
+          <option value="<?php echo $x["id_persona"] ?>">
+            <?php echo $x["per_nombres"] . " " . $x["per_apellidos"] ." | ".$x["id_persona"] ?>
+          </option>
         <?php endforeach; ?>
       </select>
       <label class="mb-1">Motivo de Salida</label>

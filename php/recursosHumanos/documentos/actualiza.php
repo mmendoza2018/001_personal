@@ -36,13 +36,11 @@ if ($_FILES['documento']['name']!=null) {
   $contenidoArchivo = file_get_contents($_FILES["documento"]['tmp_name']); //contenido del archivo
   $guarda_doc =  file_put_contents("../../../archivos/" . $nuevoNombreArchivo, $contenidoArchivo);
   if(!$guarda_doc) {
-    echo "no guardo";
     echo json_encode(false);
     die();
   };
   $identificadorDoc=$nuevoNombreArchivo;
 }
-echo "--";
 $consulta = "UPDATE gyt_documentos SET 
                                           id_persona = '$idPersona',
                                           id_tipodocumento = '$idTipoDocumento',	

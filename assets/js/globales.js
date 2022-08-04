@@ -2,14 +2,22 @@
 window.addEventListener("load", () => {
   ocultarLoader();
   setTimeout(() => {
-    /* $("#modaAlertaDocumentos").modal("show") */
+    let elementoSesionPhp = document.getElementById("PrimerIngresoSesionPhp")
+    if (elementoSesionPhp.dataset.sesion ==="1") {
+      let rutaActual = localStorage.getItem("rutaPer");
+      let vistaMonitor = "php/recursosHumanos/documentos/tablaMonitor.php"
+      if (rutaActual !== vistaMonitor) {
+        $("#modalVerTablaMonitor").modal("show")
+      }
+      cargarContenido("php/recursosHumanos/documentos/tablaMonitor.php","llegaTablaALertaDocs")
+    }
   }, 1000);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
   /* $("#contenido").load("vistas/home.php") */
   guardarDireccion();
-  //$("#modales").load("componentes/modales.php");
+  $("#modales").load("componentes/modales.php");
   verLoader();
   ocultarLoader();
   validar_campos();
@@ -83,7 +91,7 @@ function routerVistas(idBoton, url) {
         url: url,
         success: function (response) {
           $(`#contenidoGeneral`).html(response);
-          localStorage.setItem("ruta", url);
+          localStorage.setItem("rutaPer", url);
           url === "php/proceso/lista_equipos_contrato.php"
             ? reducirSidebarlateral()
             : expandirSidebarlateral();
@@ -196,13 +204,10 @@ function verLoader() {
 }
 /* funcion para mostrar el loader de carga */
 function guardarDireccion() {
-  let rutaActual = localStorage.getItem("ruta");
+  let rutaActual = localStorage.getItem("rutaPer");
   if (rutaActual) {
-    $("#contenidoGeneral").load(localStorage.getItem("ruta"));
+    $("#contenidoGeneral").load(localStorage.getItem("rutaPer"));
   }
-  rutaActual === "php/proceso/lista_equipos_contrato.php"
-    ? reducirSidebarlateral()
-    : expandirSidebarlateral();
 }
 
 const cargarContenido = (ruta, idLlegada, options={}, mostrarRes=false) => {

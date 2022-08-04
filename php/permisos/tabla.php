@@ -14,7 +14,6 @@ $resPermisos = mysqli_query($conexion, "SELECT * FROM gyt_permisos pm
           <th># Permiso</th>
           <th>Dni</th>
           <th>Nombres y Apellidos</th>
-          <th>Motivo</th>
           <th>Fecha</th>
           <th>Acciones</th>
         </tr>
@@ -27,7 +26,6 @@ $resPermisos = mysqli_query($conexion, "SELECT * FROM gyt_permisos pm
           <td><?php echo $x["id_persona"]; ?></td>
           <td><?php echo $x["per_nombres"];
               echo ' '; ?><?php echo $x["per_apellidos"]; ?></td>
-          <td><?php echo $x["perm_observaciones"]; ?></td>
           <td><?php echo $x["perm_inicio"]; ?></td>
           <td class="text-center">
             <a class="link_delete" 

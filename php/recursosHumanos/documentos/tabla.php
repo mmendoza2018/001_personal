@@ -1,6 +1,5 @@
 <?php
 require_once "../../conexion.php";
-require_once "modales.php";
 
 $resListaPersonas = mysqli_query($conexion, "SELECT * FROM gyt_personas");
 ?>
